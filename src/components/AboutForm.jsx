@@ -1,7 +1,10 @@
 import styled from "styled-components";
 import Submit from "../buttons/Submit";
-import { x } from "../assets/images/x-icon.svg";
-import { instagram } from "../assets/images/instagram-icon.svg";
+
+// eslint-disable-next-line no-unused-vars
+import React from "react";
+import XIcon from "../assets/images/XIcon.jsx";
+import IGIcon from "../assets/images/IGIcon.jsx";
 
 function AboutForm() {
   return (
@@ -12,8 +15,8 @@ function AboutForm() {
       <Submit />
       <Follow>FOLLOW</Follow>
       <IconWrapper>
-        <Icon src={x} />
-        <Icon src={instagram} />
+        <XIcon color="#fff" size="32" />
+        <IGIcon color="#fff" size="32" />
       </IconWrapper>
     </Wrapper>
   );
@@ -32,6 +35,7 @@ const Input1 = styled.input`
 
   background-color: transparent;
   border: 1px solid #fff;
+  color: white;
 
   &:focus {
     outline: none;
@@ -45,6 +49,7 @@ const Input2 = styled.textarea`
   background-color: transparent;
   border: 1px solid #fff;
   resize: none;
+  color: white;
 
   &:focus {
     outline: none;
@@ -59,11 +64,8 @@ const Follow = styled.p`
 
 const IconWrapper = styled.div`
   display: flex;
-  justify-content: center;
-  padding-top: 32px;
-  gap: 24px;
+  justify-content: left;
+
+  gap: 10px;
 `;
-
-const Icon = styled.img``;
-
 export default AboutForm;

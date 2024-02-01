@@ -18,6 +18,7 @@ function About() {
 
 const Wrapper = styled.div`
   background-color: #aeaba2b2;
+  height: 100vh;
 `;
 
 const ContentWrapper = styled.div`

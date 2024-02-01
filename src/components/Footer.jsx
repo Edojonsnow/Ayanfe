@@ -1,14 +1,14 @@
 import styled from "styled-components";
-import x from "../assets/images/x-icon.svg";
-import instagram from "../assets/images/instagram-icon.svg";
+import XIcon from "../assets/images/XIcon";
+import IGIcon from "../assets/images/IGIcon";
 import youtube from "../assets/images/youtube-icon.svg";
 
 function Footer() {
   return (
     <Wrapper>
       <IconWrapper>
-        <Icon src={x} />
-        <Icon src={instagram} />
+        <XIcon color="#AEABA2" size="36" />
+        <IGIcon color="#AEABA2" size="36" />
         <Icon src={youtube} />
       </IconWrapper>
     </Wrapper>

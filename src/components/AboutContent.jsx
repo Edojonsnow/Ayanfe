@@ -21,6 +21,7 @@ const Wrapper = styled.div`
 
 const ContactImage = styled.img`
   width: 498px;
+  margin-bottom: 40px;
 `;
 
 const ContactText = styled.p`
@@ -31,6 +32,7 @@ const ContactText = styled.p`
   letter-spacing: 0em;
   text-align: left;
   color: #fff;
+  margin: 25px auto;
 `;
 
 export default AboutContent;
