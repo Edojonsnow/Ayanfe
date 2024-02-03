@@ -14,7 +14,11 @@ function TopHomePage() {
   );
 }
 
-const Wrapper = styled.div``;
+const Wrapper = styled.div`
+  img {
+    width: 100%;
+  }
+`;
 
 const Background = styled.img`
   position: absolute;

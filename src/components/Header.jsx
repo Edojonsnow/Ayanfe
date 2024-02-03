@@ -26,7 +26,7 @@ const HeaderWrapper = styled.div`
 `;
 
 const HeaderTitle = styled.h1`
-  color: #f2f5fd;
+  color: ${(props) => (props.isGreen === "false" ? "#F2F5FD" : "#217868")};
   font-family: Poppins;
   font-size: 48px;
   font-weight: 400;
@@ -35,9 +35,9 @@ const HeaderTitle = styled.h1`
   justify-self: center;
   text-align: left;
 `;
-const HeaderNavItem = styled.a`
+const HeaderNavItem = styled.p`
   position: relative;
-  color: white;
+  color: ${(props) => (props.isGreen === "false" ? "white" : "#AEABA2")};
   font-family: Poppins;
   font-size: 18px;
   font-weight: 400;

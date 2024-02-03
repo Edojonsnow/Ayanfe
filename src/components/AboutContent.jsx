@@ -1,10 +1,30 @@
 import styled from "styled-components";
-import contactImage from "../assets/images/contact-1.png";
+import contactImage1 from "../assets/images/contact-1.png";
+import contactImage2 from "../assets/images/contact-2.png";
+import contactImage3 from "../assets/images/contact-3.png";
+import contactImage4 from "../assets/images/contact-4.png";
+import Slider from "react-slick";
 
 function AboutContent() {
+  var settings = {
+    infinite: true,
+    slidesToShow: 1,
+    slidesToScroll: 1,
+    autoplay: true,
+    speed: 2000,
+    autoplaySpeed: 2000,
+    cssEase: "linear",
+    arrows: false,
+  };
+
   return (
     <Wrapper>
-      <ContactImage src={contactImage} />
+      <Slider {...settings}>
+        <ContactImage src={contactImage1} />
+        <ContactImage src={contactImage2} />
+        <ContactImage src={contactImage3} />
+        <ContactImage src={contactImage4} />
+      </Slider>
       <ContactText>Unclogging my thoughts, one painting at a time</ContactText>
       <ContactText> Lagos based photographer</ContactText>
       <ContactText>
