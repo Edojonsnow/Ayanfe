@@ -6,6 +6,7 @@ import { printData } from "../data/PrintData";
 import { getImageURL } from "../utils/ImageUtils";
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
+import ProductOverlay from "./ProductOverlay";
 
 export default function Print() {
   const responsive = {
@@ -16,7 +17,7 @@ export default function Print() {
     },
     desktop: {
       breakpoint: { max: 3000, min: 1024 },
-      items: 3,
+      items: 3.5,
     },
     tablet: {
       breakpoint: { max: 1024, min: 464 },
@@ -29,12 +30,16 @@ export default function Print() {
   };
 
   const [isOpen, setIsOpen] = React.useState(false);
+  const [activeProduct, setActiveProduct] = React.useState(null);
 
   function handleClick(event) {
+    setActiveProduct(event.target.value);
     setIsOpen(!isOpen);
-    event.preventDefault();
-    console.log(isOpen);
   }
+  // const handleCloseOverlay = () => {
+  //   setIsOpen(false);
+  //   setActiveProduct(null);
+  // };
 
   return (
     <Wrapper>
@@ -58,7 +63,15 @@ export default function Print() {
                 >
                   ...
                 </button>
-                <Overlay className="overlay"> Overlay</Overlay>
+
+                {isOpen && activeProduct === "pic1" ? (
+                  <ProductOverlay title={"Testing"} className="overlay">
+                    {" "}
+                    Overlay
+                  </ProductOverlay>
+                ) : (
+                  ""
+                )}
               </div>
               <div className="pic-description">
                 <p>Teeth That Bite</p>
@@ -72,6 +85,17 @@ export default function Print() {
                 <button value="pic2" onClick={handleClick} className="option">
                   ...
                 </button>
+                {isOpen && activeProduct === "pic2" ? (
+                  <ProductOverlay
+                    title={printData[0].title}
+                    className="overlay"
+                  >
+                    {" "}
+                    Overlay
+                  </ProductOverlay>
+                ) : (
+                  ""
+                )}
               </div>
               <div className="pic-description">
                 <p>Teeth That Bite</p>
@@ -119,7 +143,7 @@ const Wrapper = styled.div`
   }
 `;
 const PrintWrap = styled.div`
-  width: 100%;
+  width: 1450px;
 
   .pic {
     transition: 0.5s ease-out;
@@ -147,7 +171,7 @@ const PrintWrap = styled.div`
     cursor: pointer;
   }
   .carousel {
-    height: 550px;
+    height: 520px;
   }
 `;
 const Title = styled.h1`
@@ -157,16 +181,11 @@ const Title = styled.h1`
 const Image = styled.img`
   border: 8px solid #f2f5fd;
   width: 80%;
-
+  align-content: center;
   margin: 0 50px;
 `;
 const SliderWrap = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-`;
-const Overlay = styled.div`
-  background-color: red;
-  width: 100px;
-  display: ${(props) => (props.isOpen ? "block" : "none")};
 `;
